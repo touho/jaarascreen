@@ -2,7 +2,8 @@ const fs = require('fs');
 const request = require('request');
 const path = require('path');
 
-const MESSAGE_FILE_PATH = 'messages.txt';
+const MESSAGE_FILE_PATH = path.resolve(__dirname, '../messages.txt');
+const PHOTOS_FOLDER = path.resolve(__dirname, '../public/photos');
 const TELEGRAM_BOT_TOKEN = process.env['TELEGRAM_BOT_TOKEN'];
 const CHAR_LIMIT = 140;
 
@@ -43,7 +44,10 @@ async function handlePhoto(message) {
 
 	console.log('New photo:', newFileName, `(${Math.round(photo.file_size/1000)} kb)`);
 	let photoDownloadURL = `https://api.telegram.org/file/bot${TELEGRAM_BOT_TOKEN}/${photoInfoResponse.result.file_path}`;
-	request(photoDownloadURL).pipe(fs.createWriteStream(`photos/${newFileName}`)); // .on('close', callback);
+	request(photoDownloadURL).pipe(fs.createWriteStream(`${PHOTOS_FOLDER}/${newFileName}`))
+	.on('error', function(err) {
+		console.log('pipe error', err);
+	});
 
 	//slimbot.sen
 }
@@ -60,7 +64,7 @@ async function handleCommand(message) {
 		let msg = text.substring(command.length + 1);
 		msg = msg.replace(/[\s\n\t]+/g, ' ').trim();
 		if (msg.length === 0) {
-			slimbot.sendMessage(message.chat.id, `To make your ${CHAR_LIMIT} character thought visible in Jaara, type:\n${command} <Your thought>`);
+			slimbot.sendMessage(message.chat.id, `To make your ${CHAR_LIMIT} character thought visible in Jaara, type:\n${command} <your thought>`);
 		} else {
 			if (msg.length > CHAR_LIMIT)
 				msg = msg.substring(0, CHAR_LIMIT - 3) + '...';
@@ -68,6 +72,8 @@ async function handleCommand(message) {
 			msg += ` -${message.from.first_name}`;
 			slimbot.sendMessage(message.chat.id, msg);
 			fs.appendFileSync(MESSAGE_FILE_PATH, msg + '\n');
+
+			console.log(msg);
 		}
 	}
 }
@@ -97,7 +103,12 @@ function pad2(number) {
 	return (number < 10 ? '0' : '') + number
 }
 
-fs.exists(MESSAGE_FILE_PATH, (exists) => {
+fs.existsSync(MESSAGE_FILE_PATH, (exists) => {
 	if (!exists)
 		fs.writeFileSync(MESSAGE_FILE_PATH, '');
+});
+
+fs.existsSync(PHOTOS_FOLDER, (exists) => {
+	if (!exists)
+		fs.mkdirSync(PHOTOS_FOLDER);
 });

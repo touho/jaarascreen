@@ -1,0 +1,10 @@
+# Copy this file to ./env and then do the modification to the new file
+
+TELEGRAM_BOT_TOKEN="TELEGRAM BOT TOKEN RECEIVED FROM BOTFATHER"
+PORT=8084
+
+# From the url of the spreadsheet
+SPREADSHEET_KEY="..."
+
+# Create the file in google developer console. If empty, only public and published sheets can be accessed.
+GOOGLE_SERVICE_ACCOUNT_KEY_JSON_PATH=""

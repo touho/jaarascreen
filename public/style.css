@@ -1,0 +1,72 @@
+body {
+    font-family: Arial;
+    font-size: 2vh;
+}
+
+* {
+    box-sizing: border-box;
+    user-select: none;
+}
+
+#info {
+    background: #ccffd1;
+}
+
+#pic {
+    background: black;
+    position: relative;
+    overflow: hidden;
+}
+
+#program {
+    background: white;
+}
+
+.header {
+    padding: 20px 10px;
+    font-size: 8vh;
+    text-align: center;
+}
+
+#infoContent {
+    font-size: 4vh;
+    margin-left: 7vw;
+    margin-right: 1vw;
+}
+
+#imageText {
+    position: absolute;
+    bottom: 5%;
+    width: 100%;
+    padding: 1vw;
+    text-align: center;
+    color: white;
+    font-size: 1.6vw;
+    text-shadow: 0 0 1vw black, 0 0 0.4vw black;
+}
+
+#places {
+    text-align: center;
+    font-size: 1.5vw;
+}
+#programContent {
+    position: relative;
+}
+
+.transformer > * {
+    transition: all 1s;
+    opacity: 1;
+}
+.hide > *{
+    opacity: 0;
+}
+
+#currentTimeIndicator {
+    width: 100%;
+    position: absolute;
+    top: 12.5%; /* will be corrected on refresh */
+    height: 0.4vh;
+    background: #ffcd36;
+    opacity: 0.6;
+    transform: translateY(-50%);
+}

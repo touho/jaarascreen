@@ -1,0 +1,80 @@
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+#jaarascreen {
+    display: flex;
+    height: 100vh;
+}
+
+.screenPart {
+    flex: 1;
+    position: relative;
+}
+
+#screenRight {
+    display: flex;
+    flex-direction: column;
+}
+
+#pic > img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+.screenRightPart {
+    height: 50%;
+    flex: 1;
+    position: relative;
+}
+
+.programDivider {
+    margin: 0 5%;
+    display: flex;
+    justify-content: space-around;
+}
+.programColumn {
+    flex: 1;
+    margin: 0 1%;
+    height: 100%;
+}
+#programContent .programColumn {
+    position: relative;
+}
+#program {
+    display: flex;
+    flex-direction: column;
+}
+.programCell {
+    border: 2px solid black;
+    position: absolute;
+    width: 100%;
+}
+#programHeader {
+}
+#places {
+    height: 2vw;
+}
+#places .programColumn {
+    overflow: visible;
+    text-wrap: none;
+    white-space: nowrap;
+}
+#programScroller {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+
+    border-top: 1px solid black;
+}
+#programContent {
+    height: 100%;
+}
+#arrow {
+    position: absolute;
+    top: 10%;
+    left: 2%;
+    font-size: 1vw;
+}

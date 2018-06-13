@@ -4,10 +4,13 @@
   "description": "",
   "main": "main.js",
   "dependencies": {
+    "express": "^4.16.3",
+    "google-spreadsheet": "^2.0.4",
     "slimbot": "^0.7.15"
   },
   "devDependencies": {},
   "scripts": {
+    "start": "sh -ac ' . ./env > /dev/null; node main.js'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Marko Rintamäki",
