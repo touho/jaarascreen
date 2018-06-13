@@ -64,7 +64,6 @@ async function updateCache() {
 	}
 
 	let program = await new Promise((resolve, reject) => {
-		console.log('programSheet.rowCount', programSheet.rowCount)
 		programSheet.getCells({
 			'min-row': 2,
 			'max-row': programSheet.rowCount,
