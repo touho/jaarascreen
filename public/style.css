@@ -1,6 +1,9 @@
+
+@font-face { font-family: Scriptbl; src: url('SCRIPTBL.TTF'); } 
 body {
-    font-family: Arial;
     font-size: 2vh;
+    color: #892a8c;
+    font-family: Scriptbl;
 }
 
 * {
@@ -10,6 +13,8 @@ body {
 
 #info {
     background: #ccffd1;
+    background: url(img/info_tausta.jpg);
+    background-size: cover;
 }
 
 #pic {
@@ -20,12 +25,16 @@ body {
 
 #program {
     background: white;
+    background: linear-gradient(white, #af78b0);
 }
 
 .header {
     padding: 20px 10px;
     font-size: 8vh;
     text-align: center;
+}
+.header img {
+    height: 12vh;
 }
 
 #infoContent {
@@ -47,7 +56,7 @@ body {
 
 #places {
     text-align: center;
-    font-size: 1.5vw;
+    font-size: 2vw;
 }
 #programContent {
     position: relative;
@@ -66,7 +75,33 @@ body {
     position: absolute;
     top: 12.5%; /* will be corrected on refresh */
     height: 0.4vh;
-    background: #ffcd36;
+    background: #af78b0;
     opacity: 0.6;
     transform: translateY(-50%);
+}
+
+.leaf {
+    /* width: 10%; */
+    /* width: auto; */
+    height: 100%;
+    width: 10%;
+    position: absolute;
+    top: -4%;
+    left: 0;
+}
+
+.leaf.rightLeaf {
+    right: 0;
+    left: auto;
+}
+
+.programCell {
+    border-left: 2px solid #892a8c;
+    padding-left: 5px;
+    font-family: Helvetica;
+    overflow: hidden;
+}
+
+.programCellTime {
+    font-size: 1.5vh;
 }

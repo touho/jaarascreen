@@ -1,16 +1,20 @@
-const VIEW_DURATION_MINUTES = 60*16;
-const VIEW_DURATION_TO_HISTORY_MINUTES = 60*2;
+const VIEW_DURATION_MINUTES = 60 * 16;
+const VIEW_DURATION_TO_HISTORY_MINUTES = 60 * 2;
 
 class ProgramView {
 	constructor() {
 		this.el = redom.el('div.screenPart#program',
-			redom.el('div.header#programHeader', 'Ohjelmaa'),
+			redom.el('div.header#programHeader',
+				redom.el('img', { src: 'img/Ohjelma_teksti.png' })
+			),
 			this.placesList = redom.list('div.programDivider#places', ProgramPlace),
 			redom.el('div#programScroller',
 				// redom.el('div#arrow', 'Nyt ->'),
 				this.currentTimeIndicator = redom.el('div#currentTimeIndicator'),
 				this.columns = redom.list('div.programDivider#programContent', ProgramColumn),
-			)
+			),
+			redom.el('img.leaf.leftLeaf', { src: "img/lehdet_vasen.png" }),
+			redom.el('img.leaf.rightLeaf', { src: "img/lehdet_oikea.png" })
 		);
 	}
 	update(program) {
@@ -43,20 +47,27 @@ class ProgramColumn {
 
 class ProgramCell {
 	constructor() {
-		this.el = redom.el('div.programCell')
+		this.el = redom.el('div.programCell',
+			this.name = redom.el('div.programCellName'),
+			this.time = redom.el('div.programCellTime')
+		)
 	}
 	update(programEntry) {
-		programEntry.timestamp = new Date(programEntry.timestamp);
+		let topTimestamp = new Date(Date.now() - 1000 * 60 * VIEW_DURATION_TO_HISTORY_MINUTES);
+
+		let visualTimestamp = new Date(programEntry.timestamp)
+		if (visualTimestamp < topTimestamp)
+		visualTimestamp = topTimestamp;
 		programEntry.endTime = new Date(programEntry.endTime);
 
 		let formattedTime = formatTime(programEntry.timestamp) + ' - ' + formatTime(programEntry.endTime);
 
-
-		this.el.innerHTML = formattedTime + '<br>' + programEntry.name;
+		this.name.textContent = programEntry.name;
+		this.time.textContent = formattedTime;
 		let duration = programEntry.durationMinutes;
 		let portionOfView = duration / VIEW_DURATION_MINUTES * 100
 
-		this.el.style.top = getTopValue(programEntry.timestamp);
+		this.el.style.top = getTopValue(visualTimestamp);
 		this.el.style.height = portionOfView.toFixed(3) + '%';
 	}
 }

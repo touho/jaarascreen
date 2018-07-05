@@ -95,7 +95,7 @@ async function updateCache() {
 
 					entry.endTime = new Date(entry.timestamp.getTime() + 1000*60*entry.durationMinutes);
 
-					if (entry.endTime < new Date(Date.now() - 1000 * 60 * 60 * 2))
+					if (entry.endTime < new Date(Date.now() - 1000 * 60 * 60 * 3))
 						continue;
 
 					if (entry.timestamp > new Date(Date.now() + 1000 * 60 * 60 * 14))
