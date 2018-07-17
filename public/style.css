@@ -30,16 +30,16 @@ body {
 }
 
 .header {
-    padding: 20px 10px;
-    font-size: 8vh;
+    padding: 15px 10px;
+    font-size: 1vh;
     text-align: center;
 }
 .header img {
-    height: 12vh;
+    height: 10vh;
 }
 
 #infoContent {
-    font-size: 4vh;
+    font-size: 1.7vw;
     margin-left: 7vw;
     margin-right: 1vw;
 }
