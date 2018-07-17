@@ -59,6 +59,7 @@ body {
     text-align: center;
     font-size: 2vw;
     font-family: Scriptbl;
+    border-bottom: 1px solid black;
 }
 #programContent {
     position: relative;
@@ -76,10 +77,22 @@ body {
     width: 100%;
     position: absolute;
     top: 12.5%; /* will be corrected on refresh */
-    height: 0.4vh;
+    height: 0.3vh;
     background: #af78b0;
     opacity: 0.6;
     transform: translateY(-50%);
+}
+#currentTimeIndicatorText {
+    position: absolute;
+    /* top: -1.9vh; */
+    left: 1vw;
+    background: #d3b4d4;
+    border-radius: 1vw;
+    font-size: 0.8vw;
+    padding: 0.3vw 0.5vw;
+    transform: translateY(-50%);
+    color: white;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
 .leaf {

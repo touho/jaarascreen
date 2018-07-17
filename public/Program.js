@@ -8,13 +8,14 @@ class ProgramView {
 			// 	redom.el('img', { src: 'img/Ohjelma_teksti.png' })
 			// ),
 			this.placesList = redom.list('div.programDivider#places', ProgramPlace),
+			redom.el('img.leaf.leftLeaf', { src: "img/lehdet_vasen.png" }),
 			redom.el('div#programScroller',
 				// redom.el('div#arrow', 'Nyt ->'),
 				this.currentTimeIndicator = redom.el('div#currentTimeIndicator'),
 				this.columns = redom.list('div.programDivider#programContent', ProgramColumn),
+				this.currentTimeIndicatorText = redom.el('div#currentTimeIndicatorText', '12:34')
 			),
-			redom.el('img.leaf.leftLeaf', { src: "img/lehdet_vasen.png" }),
-			redom.el('img.leaf.rightLeaf', { src: "img/lehdet_oikea.png" })
+			redom.el('img.leaf.rightLeaf', { src: "img/lehdet_oikea.png" }),
 		);
 	}
 	update(program) {
@@ -23,7 +24,10 @@ class ProgramView {
 
 		this.columns.update(places.map(place => program[place]));
 
-		this.currentTimeIndicator.style.top = getTopValue(new Date());
+		let now = new Date();
+		this.currentTimeIndicator.style.top = getTopValue(now);
+		this.currentTimeIndicatorText.style.top = getTopValue(now);
+		this.currentTimeIndicatorText.textContent = `${pad2(now.getHours())}:${pad2(now.getMinutes())}`;
 	}
 }
 

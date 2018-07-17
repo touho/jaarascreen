@@ -47,7 +47,7 @@ html, body {
 }
 
 .programDivider {
-    margin: 0 10%;
+    padding: 0 10%;
     display: flex;
     justify-content: space-around;
 }
@@ -71,9 +71,9 @@ html, body {
 #programHeader {
 }
 #places {
-    height: 2vw;
-    margin-top: 1vh;
-    margin-bottom: 0.5vh;
+    height: 3vw;
+    padding-top: 1vh;
+    padding-bottom: 0.5vh;
 }
 #places .programColumn {
     overflow: visible;
@@ -85,7 +85,7 @@ html, body {
     overflow: hidden;
     position: relative;
 
-    border-top: 1px solid black;
+    /* border-top: 1px solid black; */
 }
 #programContent {
     height: 100%;
