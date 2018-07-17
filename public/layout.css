@@ -72,6 +72,8 @@ html, body {
 }
 #places {
     height: 2vw;
+    margin-top: 1vh;
+    margin-bottom: 0.5vh;
 }
 #places .programColumn {
     overflow: visible;

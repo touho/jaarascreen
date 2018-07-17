@@ -104,14 +104,16 @@ body {
     /* font-family: Helvetica; */
 
     overflow: hidden;
-    font-size: 1.4vh;
+    font-size: 2vh;
 }
 .programCellTime {
     font-size: 1.2vh;
+    position: relative;
+    top: -0.2vh;
 }
 
 .programCell.tiny {
-    font-size: 1.1vh;
+    font-size: 1.6vh;
 }
 .programCell.tiny * {
     display: inline;
@@ -122,12 +124,12 @@ body {
 }
 
 .programCell.small {
-    font-size: 1.2vh;
+    font-size: 2vh;
 }
 .programCell.small * {
     /* display: inline; */
 }
 .programCell.small .programCellTime {
-    font-size: 0.9vh;
+    font-size: 1.2vh;
     /* margin-left: 0.5vh; */
 }

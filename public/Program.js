@@ -1,12 +1,12 @@
-const VIEW_DURATION_MINUTES = 60 * 15;
+const VIEW_DURATION_MINUTES = 60 * 10;
 const VIEW_DURATION_TO_HISTORY_MINUTES = 60 * 1;
 
 class ProgramView {
 	constructor() {
 		this.el = redom.el('div.screenPart#program',
-			redom.el('div.header#programHeader',
-				redom.el('img', { src: 'img/Ohjelma_teksti.png' })
-			),
+			// redom.el('div.header#programHeader',
+			// 	redom.el('img', { src: 'img/Ohjelma_teksti.png' })
+			// ),
 			this.placesList = redom.list('div.programDivider#places', ProgramPlace),
 			redom.el('div#programScroller',
 				// redom.el('div#arrow', 'Nyt ->'),

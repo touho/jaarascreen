@@ -1,3 +1,5 @@
+process.env.TZ = 'Europe/Helsinki';
+
 const sheets = require('./sheets');
 const calendar = require('./calendar');
 const PORT = process.env['PORT'];
