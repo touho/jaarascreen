@@ -93,8 +93,6 @@ async function updateCache() {
 						info: cells[i + 8].value
 					};
 
-					console.log('cells[i + 3].value', cells[i + 3].value, entry.timestamp);
-
 					entry.timestamp = new Date(entry.timestamp.getTime() - 1000 * 60 * 60 * 24 * 10);
 
 					entry.endTime = new Date(entry.timestamp.getTime() + 1000*60*entry.durationMinutes);
