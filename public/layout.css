@@ -18,6 +18,22 @@ html, body {
     flex-direction: column;
 }
 
+#jaarascreenlogo {
+    width: 40%;
+    left: 30%;
+    right: auto;
+    position: absolute;
+    bottom: 30px;
+}
+#howToUse {
+    width: 90%;
+    left: 8%;
+    right: auto;
+    position: absolute;
+    bottom: 5px;
+    font-size: 1.5vh;
+}
+
 #pic > img {
     height: 100%;
     width: 100%;

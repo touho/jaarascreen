@@ -6,6 +6,7 @@
   "dependencies": {
     "express": "^4.16.3",
     "google-spreadsheet": "^2.0.4",
+    "ical": "^0.5.0",
     "slimbot": "^0.7.15"
   },
   "devDependencies": {},

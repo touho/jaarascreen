@@ -8,3 +8,5 @@ SPREADSHEET_KEY="..."
 
 # Create the file in google developer console. If empty, only public and published sheets can be accessed.
 GOOGLE_SERVICE_ACCOUNT_KEY_JSON_PATH=""
+
+ICAL_FILENAME=""

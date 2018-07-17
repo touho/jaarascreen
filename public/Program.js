@@ -1,5 +1,5 @@
-const VIEW_DURATION_MINUTES = 60 * 16;
-const VIEW_DURATION_TO_HISTORY_MINUTES = 60 * 2;
+const VIEW_DURATION_MINUTES = 60 * 15;
+const VIEW_DURATION_TO_HISTORY_MINUTES = 60 * 1;
 
 class ProgramView {
 	constructor() {
@@ -55,17 +55,22 @@ class ProgramCell {
 	update(programEntry) {
 		let topTimestamp = new Date(Date.now() - 1000 * 60 * VIEW_DURATION_TO_HISTORY_MINUTES);
 
-		let visualTimestamp = new Date(programEntry.timestamp)
-		if (visualTimestamp < topTimestamp)
-		visualTimestamp = topTimestamp;
+		let visualTimestamp = new Date(programEntry.timestamp);
+		let visualDuration = programEntry.durationMinutes;
+		if (visualTimestamp < topTimestamp) {
+			visualDuration -= (topTimestamp - visualTimestamp) / 1000 / 60;
+			visualTimestamp = topTimestamp;
+		}
 		programEntry.endTime = new Date(programEntry.endTime);
 
 		let formattedTime = formatTime(programEntry.timestamp) + ' - ' + formatTime(programEntry.endTime);
 
 		this.name.textContent = programEntry.name;
 		this.time.textContent = formattedTime;
-		let duration = programEntry.durationMinutes;
-		let portionOfView = duration / VIEW_DURATION_MINUTES * 100
+		let portionOfView = visualDuration / VIEW_DURATION_MINUTES * 100
+
+		this.el.classList.toggle('tiny', visualDuration < 20);
+		this.el.classList.toggle('small', visualDuration >= 20 && visualDuration < 40);
 
 		this.el.style.top = getTopValue(visualTimestamp);
 		this.el.style.height = portionOfView.toFixed(3) + '%';

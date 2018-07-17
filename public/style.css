@@ -1,9 +1,10 @@
 
-@font-face { font-family: Scriptbl; src: url('SCRIPTBL.TTF'); } 
+@font-face { font-family: Scriptbl; src: url('SCRIPTBL.TTF'); }
 body {
     font-size: 2vh;
     color: #892a8c;
     font-family: Scriptbl;
+    font-family: Cambria,Georgia,serif;
 }
 
 * {
@@ -57,6 +58,7 @@ body {
 #places {
     text-align: center;
     font-size: 2vw;
+    font-family: Scriptbl;
 }
 #programContent {
     position: relative;
@@ -96,12 +98,36 @@ body {
 }
 
 .programCell {
-    border-left: 2px solid #892a8c;
+    border-left: 1px solid #892a8c;
+    border-radius: 2px;
     padding-left: 5px;
-    font-family: Helvetica;
+    /* font-family: Helvetica; */
+
     overflow: hidden;
+    font-size: 1.4vh;
+}
+.programCellTime {
+    font-size: 1.2vh;
 }
 
-.programCellTime {
-    font-size: 1.5vh;
+.programCell.tiny {
+    font-size: 1.1vh;
+}
+.programCell.tiny * {
+    display: inline;
+}
+.programCell.tiny .programCellTime {
+    font-size: 1vh;
+    margin-left: 0.5vh;
+}
+
+.programCell.small {
+    font-size: 1.2vh;
+}
+.programCell.small * {
+    /* display: inline; */
+}
+.programCell.small .programCellTime {
+    font-size: 0.9vh;
+    /* margin-left: 0.5vh; */
 }
