@@ -71,9 +71,9 @@ html, body {
 #programHeader {
 }
 #places {
-    height: 3vw;
-    padding-top: 1vh;
-    padding-bottom: 0.5vh;
+    /* height: 4vw; */
+    padding-top: 1vw;
+    padding-bottom: 0.2vw;
 }
 #places .programColumn {
     overflow: visible;
