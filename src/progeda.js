@@ -6,13 +6,33 @@ progeda.start = function(app) {
     app.use(bodyParser.urlencoded({ extended: false }));
     app.use(bodyParser.json());
 
+    let isJokeTime = false;
+
     app.post('/progeda/tajusin', async function (req, res) {
         let nick = req.body.nick;
         if (!nick) {
             return err(res, 'Sinulla ei ole nimeä.');
         }
-        // return err(res, 'kekki');
-        res.send('Tajusit oikein!!');
+        if (isJokeTime) {
+            res.send('Tajusit oikein!!');
+        } else {
+            err(res, 'Tajusit väärin..');
+        }
+    });
+
+
+    let timery = null;
+    app.post('/progeda/deciderDecides', async function (req, res) {
+        clearTimeout(timery);
+        timery = null;
+
+        isJokeTime = true;
+
+        timery = setTimeout(() => {
+            isJokeTime = false;
+        }, 5000);
+
+        res.send('OK');
     });
 
 }
