@@ -61,6 +61,8 @@ function build(data) {
         }
     });
 
+    var total = 0;
+
     tablebody.innerHTML = '';
     datas.forEach(function (data, i) {
         $(tablebody).append($('<tr>')
@@ -69,7 +71,11 @@ function build(data) {
             .append($('<td>').text(data.correct))
             .append($('<td>').text(data.fails))
         );
+
+        total += data.correct;
     });
+
+    $(tajuamiset).text(total);
 }
 
 function score(user) {
