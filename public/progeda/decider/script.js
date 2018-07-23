@@ -29,3 +29,14 @@ window.onkeydown = function(e) {
         send();
     }
 }
+
+function resetData() {
+    $.ajax({
+        type: 'POST',
+        url: '/progeda/resetData'
+    }).done(function(results) {
+        console.log(results);
+    }).catch(function(err) {
+        alert('fail');
+    });
+}

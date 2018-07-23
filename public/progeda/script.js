@@ -24,9 +24,15 @@ function buildNickEnter() {
 
 var timery = null;
 
+var lastPress = new Date();
 function buildButton() {
     $(body).append($('<div class="myNickViewer">').text(nick));
     $(body).append($('<button class="tajusinButton">').text('Tajusin').click(function() {
+        var diffSeconds = (new Date() - lastPress) / 1000;
+        if (diffSeconds < 2) {
+            return;
+        }
+        lastPress = new Date();
         clearTimeout(timery);
         timery = null;
 
