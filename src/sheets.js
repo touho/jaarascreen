@@ -140,7 +140,17 @@ async function updateCache() {
 		});
 	});
 
-	let pictures = fs.readdirSync(PHOTOS_FOLDER).filter(photo => !photo.startsWith('.')).slice(-10).map(photo => 'photos/' + photo);
+	let pictures = fs.readdirSync(PHOTOS_FOLDER).filter(photo => !photo.startsWith('.')).sort((a, b) => {
+		let aNumber = Number(a.split('.')[0]);
+		let bNumber = Number(b.split('.')[0]);
+		if (aNumber < bNumber) {
+			return -1;
+		} else if (aNumber > bNumber) {
+			return 1;
+		} else {
+			return 0;
+		}
+	}).slice(-10).map(photo => 'photos/' + photo);
 	let messageData = fs.readFileSync(MESSAGE_FILE_PATH, 'utf-8');
 	let messages = messageData.split('\n').filter(Boolean).slice(-10);
 
