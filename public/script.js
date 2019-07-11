@@ -23,6 +23,9 @@ function fetchData() {
 
 setTimeout(fetchData, 100);
 setInterval(fetchData, 10000);
+setInterval(function() {
+	location.reload();
+}, 10 * 60 * 1000);
 
 let showCounts = {};
 let showDateTimes = {};
