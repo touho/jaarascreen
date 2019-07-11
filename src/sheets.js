@@ -10,8 +10,8 @@ let doc = new GoogleSpreadsheet(process.env['SPREADSHEET_KEY'])
 const PHOTOS_FOLDER = path.resolve(__dirname, '../public/photos')
 const MESSAGE_FILE_PATH = path.resolve(__dirname, '../messages.txt')
 
-// const CURRENT_DAY = null;
-const CURRENT_DAY = new Date('2019-07-12 14:00')
+const CURRENT_DAY = null;
+// const CURRENT_DAY = new Date('2019-07-12 14:00')
 
 let sheets = module.exports
 
